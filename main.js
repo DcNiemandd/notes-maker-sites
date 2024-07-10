@@ -33375,17 +33375,6 @@ function provideRouterInitializer() {
 }
 var VERSION4 = new Version("18.0.7");
 
-// src/app/app.routes.ts
-var appRoutes = [];
-
-// src/app/app.config.ts
-var appConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(appRoutes)
-  ]
-};
-
 // node_modules/.pnpm/@angular+forms@18.0.7_@angular+common@18.0.7_@angular+core@18.0.7_@angular+platform-browser@18.0.7_rxjs@7.8.1/node_modules/@angular/forms/fesm2022/forms.mjs
 var _BaseControlValueAccessor = class _BaseControlValueAccessor {
   constructor(_renderer, _elementRef) {
@@ -39570,6 +39559,22 @@ for lead role in [G]cage?
 
    [||: Em G Em G Em A Em A G G :||]
 `;
+
+// src/app/app.routes.ts
+var appRoutes = [
+  {
+    path: "**",
+    component: AppComponent
+  }
+];
+
+// src/app/app.config.ts
+var appConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes)
+  ]
+};
 
 // src/main.ts
 bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
