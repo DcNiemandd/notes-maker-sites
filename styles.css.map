@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/styles.scss"],
+  "sourcesContent": ["/* You can add global styles to this file, and also import other style files */\n@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');\n\nbody {\n  margin: 0;\n}\n\n* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n"],
+  "mappings": ";;;AAGA;AACE,UAAA;;AAGF;AACE,WAAA;AACA,UAAA;AACA,cAAA;;",
+  "names": []
+}
