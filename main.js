@@ -33375,6 +33375,17 @@ function provideRouterInitializer() {
 }
 var VERSION4 = new Version("18.0.7");
 
+// src/app/app.routes.ts
+var appRoutes = [];
+
+// src/app/app.config.ts
+var appConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes)
+  ]
+};
+
 // node_modules/.pnpm/@angular+forms@18.0.7_@angular+common@18.0.7_@angular+core@18.0.7_@angular+platform-browser@18.0.7_rxjs@7.8.1/node_modules/@angular/forms/fesm2022/forms.mjs
 var _BaseControlValueAccessor = class _BaseControlValueAccessor {
   constructor(_renderer, _elementRef) {
@@ -39297,7 +39308,10 @@ var _RenderLineComponent = class _RenderLineComponent {
     if (index === 0 || !this.chords) {
       return position;
     }
-    return Math.max(0, position - this.chords[index - 1].position - this.chords[index - 1].text.length);
+    const endOfLast = this.chords.slice(0, index).reduce((endOfPrev, chord) => {
+      return Math.max(chord.position + chord.text.length, endOfPrev + chord.text.length);
+    }, 0);
+    return Math.max(0, position - endOfLast);
   }
 };
 _RenderLineComponent.\u0275fac = function RenderLineComponent_Factory(t) {
@@ -39318,7 +39332,7 @@ _RenderLineComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ t
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(ctx.lyrics);
   }
-}, styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n.chords[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n}\n.chord[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8em;\n  font-weight: 700;\n  color: #9f1212;\n}\n/*# sourceMappingURL=render-line.component.css.map */"], changeDetection: 0 });
+}, styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n.chords[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n}\n.chord[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7em;\n  font-weight: 700;\n  color: #9f1212;\n}\n.lyrics[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n/*# sourceMappingURL=render-line.component.css.map */"], changeDetection: 0 });
 var RenderLineComponent = _RenderLineComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RenderLineComponent, { className: "RenderLineComponent", filePath: "src\\app\\components\\render-line\\render-line.component.ts", lineNumber: 15 });
@@ -39333,13 +39347,14 @@ function RenderSectionComponent_Conditional_0_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r0 = \u0275\u0275nextContext();
+    \u0275\u0275classProp("top-margin", ctx_r0.lines[0].chords == null ? null : ctx_r0.lines[0].chords.length);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r0.label);
   }
 }
 function RenderSectionComponent_For_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "app-render-line", 1);
+    \u0275\u0275element(0, "app-render-line", 2);
   }
   if (rf & 2) {
     const line_r2 = ctx.$implicit;
@@ -39354,11 +39369,11 @@ var _RenderSectionComponent = class _RenderSectionComponent {
 _RenderSectionComponent.\u0275fac = function RenderSectionComponent_Factory(t) {
   return new (t || _RenderSectionComponent)();
 };
-_RenderSectionComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RenderSectionComponent, selectors: [["app-render-section"]], inputs: { label: "label", lines: "lines" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 4, vars: 1, consts: [[1, "sections"], [3, "chords", "lyrics"]], template: function RenderSectionComponent_Template(rf, ctx) {
+_RenderSectionComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RenderSectionComponent, selectors: [["app-render-section"]], inputs: { label: "label", lines: "lines" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 4, vars: 1, consts: [[3, "top-margin"], [1, "sections"], [3, "chords", "lyrics"]], template: function RenderSectionComponent_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, RenderSectionComponent_Conditional_0_Template, 2, 1, "h4");
-    \u0275\u0275elementStart(1, "div", 0);
-    \u0275\u0275repeaterCreate(2, RenderSectionComponent_For_3_Template, 1, 2, "app-render-line", 1, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275template(0, RenderSectionComponent_Conditional_0_Template, 2, 3, "h4", 0);
+    \u0275\u0275elementStart(1, "div", 1);
+    \u0275\u0275repeaterCreate(2, RenderSectionComponent_For_3_Template, 1, 2, "app-render-line", 2, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -39366,7 +39381,7 @@ _RenderSectionComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent(
     \u0275\u0275advance(2);
     \u0275\u0275repeater(ctx.lines);
   }
-}, dependencies: [RenderLineComponent], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 4px;\n  font-size: 24px;\n  font-family: "Roboto Mono", monospace;\n}\n/*# sourceMappingURL=render-section.component.css.map */'], changeDetection: 0 });
+}, dependencies: [RenderLineComponent], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 4px;\n  font-size: 16px;\n  line-height: 1em;\n  font-family: "Roboto Mono", monospace;\n}\n.top-margin[_ngcontent-%COMP%] {\n  margin-top: 1.1em;\n}\nh4[_ngcontent-%COMP%] {\n  font-size: inherit;\n  line-height: inherit;\n}\n/*# sourceMappingURL=render-section.component.css.map */'], changeDetection: 0 });
 var RenderSectionComponent = _RenderSectionComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RenderSectionComponent, { className: "RenderSectionComponent", filePath: "src\\app\\components\\render-section\\render-section.component.ts", lineNumber: 16 });
@@ -39423,7 +39438,7 @@ _CodeRendererComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx.parsedCode.sections);
   }
-}, dependencies: [RenderSectionComponent], styles: ["\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  gap: 16px;\n  padding: 8px;\n}\n/*# sourceMappingURL=code-renderer.component.css.map */"], changeDetection: 0 });
+}, dependencies: [RenderSectionComponent], styles: ["\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  gap: 16px;\n  padding: 8px;\n  aspect-ratio: 10/16;\n  height: 100%;\n  background-color: white;\n  margin-inline: auto;\n}\n/*# sourceMappingURL=code-renderer.component.css.map */"], changeDetection: 0 });
 var CodeRendererComponent = _CodeRendererComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(CodeRendererComponent, { className: "CodeRendererComponent", filePath: "src\\app\\components\\code-renderer\\code-renderer.component.ts", lineNumber: 13 });
@@ -39473,9 +39488,7 @@ var _CodeParserPipe = class _CodeParserPipe {
       }
       row = row.trim();
       let match2;
-      console.log("Row", row);
       while ((match2 = this.chordsCatch.exec(row)) !== null) {
-        console.log("Match", match2);
         if (!line.chords) {
           line.chords = [];
         }
@@ -39489,6 +39502,7 @@ var _CodeParserPipe = class _CodeParserPipe {
       line.lyrics = row;
       tempSection.lines.push(line);
     });
+    console.log(JSON.stringify(parsed));
     return parsed;
   }
 };
@@ -39528,7 +39542,7 @@ _AppComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _A
     \u0275\u0275advance(3);
     \u0275\u0275property("parsedCode", \u0275\u0275pipeBind1(5, 2, ctx.code));
   }
-}, dependencies: [CodeRendererComponent, CodeParserPipe, FormsModule], styles: ["\n\n[_nghost-%COMP%] {\n  display: flex;\n  align-items: stretch;\n  justify-content: stretch;\n  height: 100vh;\n  width: 100vw;\n}\n.container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 16px;\n  padding: 16px;\n  background-color: #ddd;\n  flex-grow: 1;\n}\n.container[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  height: 100%;\n  background-color: white;\n  flex: 1 0 0;\n}\n.code[_ngcontent-%COMP%] {\n  resize: none;\n  outline: none;\n  border: none;\n  padding: 8px;\n  max-width: 600px;\n}\n.rendered[_ngcontent-%COMP%] {\n  overflow-y: scroll;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+}, dependencies: [CodeRendererComponent, CodeParserPipe, FormsModule], styles: ["\n\n[_nghost-%COMP%] {\n  display: flex;\n  align-items: stretch;\n  justify-content: stretch;\n  height: 100vh;\n  width: 100vw;\n}\n.container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 16px;\n  padding: 16px;\n  background-color: #ddd;\n  flex-grow: 1;\n}\n.container[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  height: 100%;\n  flex: 1 0 0;\n}\n.code[_ngcontent-%COMP%] {\n  resize: none;\n  outline: none;\n  border: none;\n  padding: 8px;\n  max-width: 600px;\n  background-color: white;\n}\n.rendered[_ngcontent-%COMP%] {\n  overflow-y: scroll;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 var AppComponent = _AppComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 13 });
@@ -39559,22 +39573,6 @@ for lead role in [G]cage?
 
    [||: Em G Em G Em A Em A G G :||]
 `;
-
-// src/app/app.routes.ts
-var appRoutes = [
-  {
-    path: "**",
-    component: AppComponent
-  }
-];
-
-// src/app/app.config.ts
-var appConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(appRoutes)
-  ]
-};
 
 // src/main.ts
 bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));

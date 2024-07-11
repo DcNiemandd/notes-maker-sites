@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["src/app/components/code-renderer/code-renderer.component.css"],
-  "sourcesContent": [":host {\n  display: flex;\n  flex-flow: column;\n  gap: 16px;\n  padding: 8px;\n}\n"],
-  "mappings": ";AAAA;AACE,WAAS;AACT,aAAW;AACX,OAAK;AACL,WAAS;AACX;",
+  "sourcesContent": [":host {\n  display: flex;\n  flex-flow: column;\n  gap: 16px;\n  padding: 8px;\n  aspect-ratio: 10/16;\n  height: 100%;\n  background-color: white;\n  margin-inline: auto;\n}\n"],
+  "mappings": ";AAAA;AACE,WAAS;AACT,aAAW;AACX,OAAK;AACL,WAAS;AACT,gBAAc,EAAE,CAAC;AACjB,UAAQ;AACR,oBAAkB;AAClB,iBAAe;AACjB;",
   "names": []
 }

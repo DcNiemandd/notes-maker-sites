@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["src/app/components/render-section/render-section.component.scss"],
-  "sourcesContent": [":host {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 4px;\n\n  font-size: 24px;\n  font-family: 'Roboto Mono', monospace;\n}\n"],
-  "mappings": ";AAAA;AACE,WAAA;AACA,aAAA,IAAA;AACA,OAAA;AAEA,aAAA;AACA,eAAA,aAAA,EAAA;;",
+  "sourcesContent": [":host {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 4px;\n\n  font-size: 16px;\n  line-height: 1em;\n  font-family: 'Roboto Mono', monospace;\n}\n\n.top-margin {\n  margin-top: 1.1em;\n}\n\nh4 {\n  font-size: inherit;\n  line-height: inherit;\n}\n"],
+  "mappings": ";AAAA;AACE,WAAA;AACA,aAAA,IAAA;AACA,OAAA;AAEA,aAAA;AACA,eAAA;AACA,eAAA,aAAA,EAAA;;AAGF,CAAA;AACE,cAAA;;AAGF;AACE,aAAA;AACA,eAAA;;",
   "names": []
 }
