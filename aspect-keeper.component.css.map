@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/aspect-keeper/aspect-keeper.component.scss"],
+  "sourcesContent": [":host {\r\n  display: block;\r\n  position: relative;\r\n\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.content {\r\n  border: 8px black solid;\r\n  border-radius: 8px;\r\n  position: absolute;\r\n  translate: -50% -50%;\r\n  left: 50%;\r\n  top: 50%;\r\n}\r\n"],
+  "mappings": ";AAAA;AACE,WAAA;AACA,YAAA;AAEA,UAAA;AACA,SAAA;;AAGF,CAAA;AACE,UAAA,IAAA,MAAA;AACA,iBAAA;AACA,YAAA;AACA,aAAA,KAAA;AACA,QAAA;AACA,OAAA;;",
+  "names": []
+}

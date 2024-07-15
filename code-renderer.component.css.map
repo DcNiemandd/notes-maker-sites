@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["src/app/components/code-renderer/code-renderer.component.css"],
-  "sourcesContent": [":host {\n  display: flex;\n  flex-flow: column;\n  gap: 16px;\n  padding: 8px;\n  aspect-ratio: 10/16;\n  height: 100%;\n  background-color: white;\n  margin-inline: auto;\n}\n"],
-  "mappings": ";AAAA;AACE,WAAS;AACT,aAAW;AACX,OAAK;AACL,WAAS;AACT,gBAAc,EAAE,CAAC;AACjB,UAAQ;AACR,oBAAkB;AAClB,iBAAe;AACjB;",
+  "sources": ["src/app/components/code-renderer/code-renderer.component.scss"],
+  "sourcesContent": [":host {\n  display: block;\n  height: 100%;\n  font-size: calc(16px * var(--scale, 1));\n}\n\n.code-content {\n  display: flex;\n  flex-flow: column;\n  padding: 8px;\n  height: 100%;\n  width: 100%;\n  background-color: white;\n  align-items: flex-start;\n  justify-content: flex-start;\n  gap: 8px;\n\n  // ::ng-deep * {\n  //   outline: 1px solid red;\n  // }\n}\n\n.titles {\n  display: flex;\n  flex-flow: row wrap;\n  gap: 4px 24px;\n  align-items: center;\n}\n\nh1 {\n  font-size: 1.5em;\n}\n\nh2 {\n  font-size: 1.2em;\n  color: #747474;\n}\n\n.sections {\n  columns: var(--columns);\n}\n\napp-render-section:not(:last-child) {\n  margin-bottom: 24px;\n}\n"],
+  "mappings": ";AAAA;AACE,WAAA;AACA,UAAA;AACA,aAAA,KAAA,KAAA,EAAA,IAAA,OAAA,EAAA;;AAGF,CAAA;AACE,WAAA;AACA,aAAA;AACA,WAAA;AACA,UAAA;AACA,SAAA;AACA,oBAAA;AACA,eAAA;AACA,mBAAA;AACA,OAAA;;AAOF,CAAA;AACE,WAAA;AACA,aAAA,IAAA;AACA,OAAA,IAAA;AACA,eAAA;;AAGF;AACE,aAAA;;AAGF;AACE,aAAA;AACA,SAAA;;AAGF,CAAA;AACE,WAAA,IAAA;;AAGF,kBAAA,KAAA;AACE,iBAAA;;",
   "names": []
 }

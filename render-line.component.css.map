@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["src/app/components/render-line/render-line.component.scss"],
-  "sourcesContent": [":host {\n  display: block;\n}\n\n.chords {\n  display: flex;\n  flex-flow: row nowrap;\n}\n\n.chord span {\n  font-size: 0.7em;\n  font-weight: 700;\n  color: #9f1212;\n}\n\n.lyrics {\n  white-space: nowrap;\n}\n"],
-  "mappings": ";AAAA;AACE,WAAA;;AAGF,CAAA;AACE,WAAA;AACA,aAAA,IAAA;;AAGF,CAAA,MAAA;AACE,aAAA;AACA,eAAA;AACA,SAAA;;AAGF,CAAA;AACE,eAAA;;",
+  "sourcesContent": [":host {\n  display: block;\n}\n\n.chords {\n  display: flex;\n  flex-flow: row nowrap;\n}\n\n.chord span {\n  font-size: 0.7em;\n  line-height: 0.7em;\n  font-weight: 700;\n  color: #9f1212;\n}\n\n.lyrics {\n  white-space: nowrap;\n}\n"],
+  "mappings": ";AAAA;AACE,WAAA;;AAGF,CAAA;AACE,WAAA;AACA,aAAA,IAAA;;AAGF,CAAA,MAAA;AACE,aAAA;AACA,eAAA;AACA,eAAA;AACA,SAAA;;AAGF,CAAA;AACE,eAAA;;",
   "names": []
 }
