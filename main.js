@@ -33552,7 +33552,7 @@ _RenderLineComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ t
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(ctx.lyrics);
   }
-}, styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n.chords[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n}\n.chord[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7em;\n  line-height: 0.7em;\n  font-weight: 700;\n  color: #9f1212;\n}\n.lyrics[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n/*# sourceMappingURL=render-line.component.css.map */"], changeDetection: 0 });
+}, styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n.chords[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n}\n.chord[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-weight: 700;\n  color: #9f1212;\n}\n.chords[_ngcontent-%COMP%]:not(:has( + .lyrics[_ngcontent-%COMP%]:empty))   .chord[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7em;\n  line-height: 0.7em;\n}\n.lyrics[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n/*# sourceMappingURL=render-line.component.css.map */"], changeDetection: 0 });
 var RenderLineComponent = _RenderLineComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RenderLineComponent, { className: "RenderLineComponent", filePath: "src\\app\\components\\render-line\\render-line.component.ts", lineNumber: 15 });
@@ -33640,6 +33640,7 @@ var _CodeRendererComponent = class _CodeRendererComponent {
     this.aspectRatio = 10 / 16;
     this.scale = 1;
     this.columns = 1;
+    this.isSideTitle = false;
   }
 };
 _CodeRendererComponent.\u0275fac = function CodeRendererComponent_Factory(t) {
@@ -33661,7 +33662,7 @@ _CodeRendererComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
   if (typeof v !== "string")
     return v;
   return v.split(/[/:]/g, 2).reduce((evaluation, value) => evaluation ? evaluation / Number(value) : Number(value), void 0);
-}], scale: "scale", columns: "columns", parsedCode: "parsedCode" }, standalone: true, features: [\u0275\u0275InputTransformsFeature, \u0275\u0275StandaloneFeature], decls: 9, vars: 3, consts: [["toPrintRef", ""], [3, "aspectRatio"], [1, "code-content"], [1, "titles"], [1, "title"], [1, "subtitle"], [1, "sections"], [3, "label", "lines", "labelWidth"]], template: function CodeRendererComponent_Template(rf, ctx) {
+}], scale: "scale", columns: "columns", parsedCode: "parsedCode", isSideTitle: "isSideTitle" }, standalone: true, features: [\u0275\u0275InputTransformsFeature, \u0275\u0275StandaloneFeature], decls: 9, vars: 5, consts: [["toPrintRef", ""], [3, "aspectRatio"], [1, "code-content"], [1, "titles"], [1, "title"], [1, "subtitle"], [1, "sections"], [3, "label", "lines", "labelWidth"]], template: function CodeRendererComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "app-aspect-keeper", 1)(1, "div", 2, 0)(3, "div", 3);
     \u0275\u0275template(4, CodeRendererComponent_Conditional_4_Template, 2, 1, "h1", 4)(5, CodeRendererComponent_Conditional_5_Template, 2, 1, "h2", 5);
@@ -33672,14 +33673,16 @@ _CodeRendererComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
   }
   if (rf & 2) {
     \u0275\u0275property("aspectRatio", ctx.aspectRatio);
-    \u0275\u0275advance(4);
+    \u0275\u0275advance(3);
+    \u0275\u0275classProp("is-side-title", ctx.isSideTitle);
+    \u0275\u0275advance();
     \u0275\u0275conditional(ctx.parsedCode.title ? 4 : -1);
     \u0275\u0275advance();
     \u0275\u0275conditional(ctx.parsedCode.subtitle ? 5 : -1);
     \u0275\u0275advance(2);
     \u0275\u0275repeater(ctx.parsedCode.sections);
   }
-}, dependencies: [RenderSectionComponent, AspectKeeperComponent], styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n  height: 100%;\n  font-size: calc(16px * var(--scale, 1));\n}\n.code-content[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  padding: 8px;\n  height: 100%;\n  width: 100%;\n  background-color: white;\n  align-items: flex-start;\n  justify-content: flex-start;\n  gap: 8px;\n}\n.titles[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row wrap;\n  gap: 4px 24px;\n  align-items: center;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: 1.5em;\n}\nh2[_ngcontent-%COMP%] {\n  font-size: 1.2em;\n  color: #747474;\n}\n.sections[_ngcontent-%COMP%] {\n  columns: var(--columns);\n}\napp-render-section[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 24px;\n}\n/*# sourceMappingURL=code-renderer.component.css.map */"], changeDetection: 0 });
+}, dependencies: [RenderSectionComponent, AspectKeeperComponent], styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n  height: 100%;\n  font-size: calc(16px * var(--scale, 1));\n}\n.code-content[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row wrap;\n  padding: 8px;\n  height: 100%;\n  width: 100%;\n  background-color: white;\n  align-items: flex-start;\n  justify-content: flex-start;\n  gap: 8px;\n}\n.titles[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row wrap;\n  gap: 4px 24px;\n  align-items: center;\n}\n.is-side-title[_ngcontent-%COMP%] {\n  writing-mode: vertical-lr;\n  margin-right: 24px;\n}\nh1[_ngcontent-%COMP%] {\n  font-size: 1.5em;\n}\nh2[_ngcontent-%COMP%] {\n  font-size: 1.2em;\n  color: #747474;\n}\n.sections[_ngcontent-%COMP%] {\n  columns: var(--columns);\n}\napp-render-section[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 24px;\n}\n/*# sourceMappingURL=code-renderer.component.css.map */"], changeDetection: 0 });
 var CodeRendererComponent = _CodeRendererComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(CodeRendererComponent, { className: "CodeRendererComponent", filePath: "src\\app\\components\\code-renderer\\code-renderer.component.ts", lineNumber: 22 });
@@ -34604,7 +34607,8 @@ var _AppComponent = class _AppComponent {
     this.destroyRef = destroyRef;
     this.aspectRatio = "10/16";
     this.code = povesteHoVejs;
-    this.scale = 1.7;
+    this.scale = 1.75;
+    this.isSideTitle = true;
     this.columns = 1;
     this.renderOptions = {
       quality: 1,
@@ -34639,56 +34643,69 @@ _AppComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _A
     let _t;
     \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.codeRenderer = _t.first);
   }
-}, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 25, vars: 10, consts: [["aspectRatioInput", ""], ["scaleInput", ""], ["columnsInput", ""], ["codeTA", ""], [1, "container"], [1, "controls"], [1, "buttons"], [1, "input", "input-aspect-ratio"], ["for", "aspectRatio"], ["id", "aspectRatio", "type", "text", 1, "aspect-ratio", 3, "change", "value"], [1, "input", "input-scale"], ["for", "scale"], ["id", "scale", "type", "number", "step", "0.025", "min", "0.5", 1, "aspect-ratio", 3, "input", "value"], [1, "input", "input-columns"], ["for", "columns"], ["id", "columns", "type", "number", "min", "1", "max", "3", 1, "aspect-ratio", 3, "input", "value"], [3, "click"], ["name", "code", "id", "code", 1, "code", 3, "input", "value"], [1, "rendered"], [3, "parsedCode", "aspectRatio", "scale", "columns"]], template: function AppComponent_Template(rf, ctx) {
+}, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 33, vars: 12, consts: [["aspectRatioInput", ""], ["scaleInput", ""], ["columnsInput", ""], ["sideTitleInput", ""], ["codeTA", ""], [1, "container"], [1, "controls"], [1, "settings"], [1, "input", "input-aspect-ratio"], ["for", "aspectRatio"], ["id", "aspectRatio", "type", "text", 3, "change", "value"], [1, "input", "input-scale"], ["for", "scale"], ["id", "scale", "type", "number", "step", "0.025", "min", "0.5", 3, "input", "value"], [1, "input", "input-columns"], ["for", "columns"], ["id", "columns", "type", "number", "min", "1", "max", "3", 3, "input", "value"], [1, "input", "input-side-title"], ["for", "side-title"], ["id", "side-title", "type", "checkbox", 3, "input", "checked"], [1, "buttons"], [3, "click"], ["name", "code", "id", "code", 1, "code", 3, "input", "value"], [1, "rendered"], [3, "parsedCode", "aspectRatio", "scale", "isSideTitle", "columns"]], template: function AppComponent_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 4)(1, "div", 5)(2, "div", 6)(3, "div", 7)(4, "label", 8);
+    \u0275\u0275elementStart(0, "div", 5)(1, "div", 6)(2, "div", 7)(3, "div", 8)(4, "label", 9);
     \u0275\u0275text(5, "Aspect ratio");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "input", 9, 0);
+    \u0275\u0275elementStart(6, "input", 10, 0);
     \u0275\u0275listener("change", function AppComponent_Template_input_change_6_listener() {
       \u0275\u0275restoreView(_r1);
       const aspectRatioInput_r2 = \u0275\u0275reference(7);
       return \u0275\u0275resetView(ctx.aspectRatio = aspectRatioInput_r2.value);
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "div", 10)(9, "label", 11);
+    \u0275\u0275elementStart(8, "div", 11)(9, "label", 12);
     \u0275\u0275text(10, "Scale");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "input", 12, 1);
+    \u0275\u0275elementStart(11, "input", 13, 1);
     \u0275\u0275listener("input", function AppComponent_Template_input_input_11_listener() {
       \u0275\u0275restoreView(_r1);
       const scaleInput_r3 = \u0275\u0275reference(12);
       return \u0275\u0275resetView(ctx.scale = ctx.toNumber(scaleInput_r3.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(13, "div", 13)(14, "label", 14);
+    \u0275\u0275elementStart(13, "div", 14)(14, "label", 15);
     \u0275\u0275text(15, "Columns");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(16, "input", 15, 2);
+    \u0275\u0275elementStart(16, "input", 16, 2);
     \u0275\u0275listener("input", function AppComponent_Template_input_input_16_listener() {
       \u0275\u0275restoreView(_r1);
       const columnsInput_r4 = \u0275\u0275reference(17);
       return \u0275\u0275resetView(ctx.columns = ctx.toNumber(columnsInput_r4.value));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(18, "button", 16);
-    \u0275\u0275listener("click", function AppComponent_Template_button_click_18_listener() {
+    \u0275\u0275elementStart(18, "div", 17)(19, "label", 18);
+    \u0275\u0275text(20, "Title on the side");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(21, "input", 19, 3);
+    \u0275\u0275listener("input", function AppComponent_Template_input_input_21_listener() {
+      \u0275\u0275restoreView(_r1);
+      const sideTitleInput_r5 = \u0275\u0275reference(22);
+      return \u0275\u0275resetView(ctx.isSideTitle = sideTitleInput_r5.checked);
+    });
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(23, "div", 20)(24, "button", 21);
+    \u0275\u0275listener("click", function AppComponent_Template_button_click_24_listener() {
       \u0275\u0275restoreView(_r1);
       return \u0275\u0275resetView(ctx.saveAsJpeg());
     });
-    \u0275\u0275text(19, "Save as image");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(20, "textarea", 17, 3);
-    \u0275\u0275listener("input", function AppComponent_Template_textarea_input_20_listener() {
+    \u0275\u0275text(25, "Save as image");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(26, "button");
+    \u0275\u0275text(27, "Pointless button");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(28, "textarea", 22, 4);
+    \u0275\u0275listener("input", function AppComponent_Template_textarea_input_28_listener() {
       \u0275\u0275restoreView(_r1);
-      const codeTA_r5 = \u0275\u0275reference(21);
-      return \u0275\u0275resetView(ctx.code = codeTA_r5.value);
+      const codeTA_r6 = \u0275\u0275reference(29);
+      return \u0275\u0275resetView(ctx.code = codeTA_r6.value);
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(22, "div", 18);
-    \u0275\u0275element(23, "app-code-renderer", 19);
-    \u0275\u0275pipe(24, "codeParser");
+    \u0275\u0275elementStart(30, "div", 23);
+    \u0275\u0275element(31, "app-code-renderer", 24);
+    \u0275\u0275pipe(32, "codeParser");
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -34698,12 +34715,14 @@ _AppComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _A
     \u0275\u0275property("value", ctx.scale);
     \u0275\u0275advance(5);
     \u0275\u0275property("value", ctx.columns);
-    \u0275\u0275advance(4);
+    \u0275\u0275advance(5);
+    \u0275\u0275property("checked", ctx.isSideTitle);
+    \u0275\u0275advance(7);
     \u0275\u0275property("value", ctx.code);
     \u0275\u0275advance(3);
-    \u0275\u0275property("parsedCode", \u0275\u0275pipeBind1(24, 8, ctx.code))("aspectRatio", ctx.aspectRatio)("scale", ctx.scale)("columns", ctx.columns);
+    \u0275\u0275property("parsedCode", \u0275\u0275pipeBind1(32, 10, ctx.code))("aspectRatio", ctx.aspectRatio)("scale", ctx.scale)("isSideTitle", ctx.isSideTitle)("columns", ctx.columns);
   }
-}, dependencies: [CodeRendererComponent, CodeParserPipe], styles: ["\n\n[_nghost-%COMP%] {\n  display: flex;\n  align-items: stretch;\n  justify-content: stretch;\n  height: 100vh;\n  width: 100vw;\n}\n.container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 16px;\n  padding: 16px;\n  background-color: #ddd;\n  flex-grow: 1;\n}\n.container[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  height: 100%;\n  flex: 1 0 0;\n}\n.controls[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  align-items: stretch;\n  gap: 8px;\n  max-width: 600px;\n}\n.buttons[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  gap: 8px;\n}\n.input[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  gap: 8px;\n}\n.input[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  flex-grow: 1;\n}\n.buttons[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%] {\n  padding: 8px;\n  background-color: white;\n}\n.code[_ngcontent-%COMP%] {\n  resize: none;\n  outline: none;\n  border: 1px solid transparent;\n  flex-grow: 1;\n  transition: border-color 200ms ease-in-out;\n}\n.code[_ngcontent-%COMP%]:hover {\n  border-color: #616161;\n}\n.code[_ngcontent-%COMP%]:focus, \n.code[_ngcontent-%COMP%]:focus-visible, \n.code[_ngcontent-%COMP%]:focus-within {\n  border-color: #232323;\n}\n.rendered[_ngcontent-%COMP%] {\n  overflow-y: scroll;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+}, dependencies: [CodeRendererComponent, CodeParserPipe], styles: ["\n\n[_nghost-%COMP%] {\n  display: flex;\n  align-items: stretch;\n  justify-content: stretch;\n  height: 100vh;\n  width: 100vw;\n}\n.container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  gap: 16px;\n  padding: 16px;\n  background-color: #ddd;\n  flex-grow: 1;\n}\n.container[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  height: 100%;\n  flex: 1 0 0;\n}\n.controls[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  align-items: stretch;\n  gap: 8px;\n  max-width: 600px;\n}\n.settings[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: column;\n  gap: 8px;\n}\n.input[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  gap: 8px;\n}\n.input[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  flex-grow: 1;\n}\n.settings[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%] {\n  padding: 8px;\n  background-color: white;\n}\n.buttons[_ngcontent-%COMP%] {\n  display: flex;\n  flex-flow: row wrap;\n  gap: 8px;\n}\n.buttons[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  flex: 1 0 calc((100% - 16px) / 3);\n}\n.code[_ngcontent-%COMP%] {\n  resize: none;\n  outline: none;\n  border: 1px solid transparent;\n  flex-grow: 1;\n  transition: border-color 200ms ease-in-out;\n}\n.code[_ngcontent-%COMP%]:hover {\n  border-color: #616161;\n}\n.code[_ngcontent-%COMP%]:focus, \n.code[_ngcontent-%COMP%]:focus-visible, \n.code[_ngcontent-%COMP%]:focus-within {\n  border-color: #232323;\n}\n.rendered[_ngcontent-%COMP%] {\n  overflow-y: scroll;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 var AppComponent = _AppComponent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 18 });
