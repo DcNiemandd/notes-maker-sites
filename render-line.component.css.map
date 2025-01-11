@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/components/render-line/render-line.component.scss"],
-  "sourcesContent": [":host {\n  display: block;\n}\n\n.chords {\n  display: flex;\n  flex-flow: row nowrap;\n}\n\n.chord span {\n  font-weight: 700;\n  color: #9f1212;\n}\n\n.chords:not(:has(+ .lyrics:empty)) .chord span {\n  font-size: 0.7em;\n  line-height: 0.7em;\n}\n\n.lyrics {\n  white-space: nowrap;\n}\n"],
-  "mappings": ";AAAA;AACE,WAAA;;AAGF,CAAA;AACE,WAAA;AACA,aAAA,IAAA;;AAGF,CAAA,MAAA;AACE,eAAA;AACA,SAAA;;AAGF,CAVA,MAUA,KAAA,KAAA,EAAA,CAAA,MAAA,SAAA,CALA,MAKA;AACE,aAAA;AACA,eAAA;;AAGF,CALA;AAME,eAAA;;",
-  "names": []
-}
